@@ -5,13 +5,12 @@ type AccordionPropsType = {
     collapsed: boolean
 }
 
-function Accordion(props: AccordionPropsType) {
+function Accordion1(props: AccordionPropsType) {
     if (props.collapsed) {
         return (
             <div>
                 {/*Прокидываем пропсы, которые приходят в Accordion*/}
                 <AccordionTitle title={props.title}/>
-                <AccordionBody />
             </div>
         )
     } else {
@@ -19,6 +18,7 @@ function Accordion(props: AccordionPropsType) {
             <div>
                 {/*Прокидываем пропсы, которые приходят в Accordion*/}
                 <AccordionTitle title={props.title}/>
+                <AccordionBody />
             </div>
         )
     }
@@ -39,4 +39,4 @@ function AccordionBody() {
     </ul>)
 }
 
-export default Accordion;
+export default Accordion1;
