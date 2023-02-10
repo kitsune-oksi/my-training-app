@@ -5,27 +5,24 @@ export function UncontroledRaiting() {
 
     return (
         <div>
-            <Star selected={value > 0} setValue={setValue} id={1}/>
-            <Star selected={value > 1} setValue={setValue} id={2}/>
-            <Star selected={value > 2} setValue={setValue} id={3}/>
+            <Star selected={value > 0} setValue={() => setValue(1)}/>
+            <Star selected={value > 1} setValue={() => setValue(2)}/>
+            <Star selected={value > 2} setValue={() => setValue(3)}/>
         </div>
     )
 }
 
 type StarPropsType = {
     selected: boolean
-    setValue: (value: number) => void
-    id: number
+    setValue: () => void
 }
 
 const Star = (props: StarPropsType) => {
-    const onClickStarHandler = () => {
-        props.setValue(props.id)
-    }
+    const onClickStarHandler = () => props.setValue()
 
     return (
         <>
-            {props.selected ? <span onClick={onClickStarHandler}><b>star</b> </span> : <span onClick={onClickStarHandler}>star </span>}
+            <span onClick={onClickStarHandler}> {props.selected ? <b>star</b> : 'star'} </span>
         </>
     )
 }

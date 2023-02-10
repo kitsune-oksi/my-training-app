@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion1";
-import {Raiting} from "./components/Rating/Rating";
+import {Raiting, RatingValueType} from "./components/Rating/Rating";
 import {Filter} from "./components/Filter";
 import Accordion1 from "./components/Accordion/Accordion1";
 import Accordion2 from "./components/Accordion/Accordion2";
@@ -50,17 +50,17 @@ function App() {
     //     setA(a=0)
     // }
 
+    const [raitingValue, setRaitingValue] = useState<RatingValueType>(0)
+    const [accordionValue, setAccordionValue] = useState<boolean>(false)
+
     return (
         <>
             <AppTitle title={'This is APP component!'}/>
-            <Raiting value={0}/>
-            <Raiting value={1}/>
-            <Raiting value={2}/>
-            <Raiting value={3}/>
+            <Raiting value={raitingValue} onClick={setRaitingValue}/>
             <Accordion1 title={'Menu'} collapsed={true}/>
             <Accordion1 title={'Numbers'} collapsed={false}/>
             <AppTitle title={'My page'}/>
-            <Accordion2 title={'Controled Accordion'} collapsed={false}/>
+            <Accordion2 title={'Controled Accordion'} collapsed={accordionValue} onClick={setAccordionValue}/>
             <UncontroledAccordion title={'Uncontroled Accordion'} />
             <UncontroledRaiting/>
             {/*<Filter/>*/}
